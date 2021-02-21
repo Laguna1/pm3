@@ -1,3 +1,5 @@
+[Source Article](https://hibbard.eu/authentication-with-devise-and-cancancan-in-rails/)
+Respect to @jameshibbard for his explanation
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
