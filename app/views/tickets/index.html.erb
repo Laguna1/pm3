@@ -17,8 +17,16 @@
         <td><%= ticket.description %></td>
         <td><%= ticket.user.name %></td>
         <td><%= link_to 'Show', ticket %></td>
+        <td>
+        <% if can? :update, ticket %>
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <% end %>
+      </td>
+      <td>
+        <% if can? :destroy, ticket %>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </td>
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +35,5 @@
 <br>
 
 <%= link_to 'New Ticket', new_ticket_path %>
+
+

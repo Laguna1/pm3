@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+ before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /tickets
   def index
@@ -13,7 +13,6 @@ class TicketsController < ApplicationController
 
   # GET /tickets/new
   def new
-    @ticket = Ticket.new
   end
 
   # GET /tickets/1/edit
@@ -22,7 +21,6 @@ class TicketsController < ApplicationController
 
   # POST /tickets
   def create
-    @ticket = Ticket.new(ticket_params)
     @ticket.user_id = current_user.id
     if @ticket.save
       redirect_to @ticket, notice: 'Ticket was successfully created.'
@@ -47,11 +45,6 @@ class TicketsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ticket
-      @ticket = Ticket.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def ticket_params
       params.require(:ticket).permit(:name, :description, :user_id)

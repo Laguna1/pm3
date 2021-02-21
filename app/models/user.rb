@@ -11,4 +11,16 @@ class User < ApplicationRecord
   def assign_role
     self.role = Role.find_by name: 'Patient' if role.nil?
   end
+
+  def admin?
+    role.name == 'Admin'
+  end
+
+  def doctor?
+    role.name == 'Doctor'
+  end
+  
+  def patient?
+    role.name == 'Patient'
+  end
 end
