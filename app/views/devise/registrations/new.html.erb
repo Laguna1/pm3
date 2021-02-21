@@ -13,13 +13,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :role_id %>
-    <%= collection_select(
-        :user, :role_id, Role.all, :id, :name, { prompt: true }
-        ) %>
-  </div>
-
-  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
