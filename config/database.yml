@@ -20,3 +20,6 @@ test:
 
 production:
   <<: *default
+  database: pm3_production
+  username: pm3
+  password: <%= ENV['PM3_DATABASE_PASSWORD'] %>
