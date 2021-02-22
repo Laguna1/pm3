@@ -6,17 +6,17 @@ adapter: postgresql
 encoding: unicode
 # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 15 } %>
 
-development:  <<: *default 
-database: pm3_development
+development:
+  <<: *default
+  database: pm3_development
 # Warning: The database defined as "test" will be erased and# re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 
-test:  <<: *default
-database: pm3_test
+test:
+  <<: *default
+  database: pm3_test
 
-production:  <<: *default
-database: pm3_production
-username: pm3
-password: <%= ENV['PM3_DATABASE_PASSWORD'] %>
+production:
+  <<: *default
